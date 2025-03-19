@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginPageController">
+   <children>
+      <AnchorPane layoutX="611.0" layoutY="168.0" prefHeight="532.0" prefWidth="462.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="177.0" layoutY="43.0" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" layoutX="65.0" layoutY="148.0" prefHeight="40.0" prefWidth="332.0" promptText="Username" />
+            <TextField fx:id="txtPassword" layoutX="65.0" layoutY="214.0" prefHeight="40.0" prefWidth="332.0" promptText="Password" />
+            <Button fx:id="btnSignIn" layoutX="65.0" layoutY="367.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="40.0" prefWidth="332.0" style="-fx-background-color: F6F1DE; -fx-border-color: black;" text="Login">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblNotAcc" layoutX="65.0" layoutY="284.0" text="Don't have an account?">
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCreateAcc" layoutX="238.0" layoutY="282.0" onMouseClicked="#lblCreateAccOnClick" prefHeight="26.0" prefWidth="174.0" text="Create a new Account" textFill="#3e3f5b">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="706.0" fitWidth="557.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/girl-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblTopic" layoutX="370.0" layoutY="75.0" prefHeight="54.0" prefWidth="772.0" text="A HEALTHY MIND CREATES A BALANCED LIFE">
+         <font>
+            <Font name="Tempus Sans ITC" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

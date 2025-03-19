@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="signupPage" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignupPageController">
+   <AnchorPane fx:id="ap2" layoutX="40.0" layoutY="27.0" prefHeight="694.0" prefWidth="1119.0" style="-fx-background-color: white;">
+      <children>
+         <ImageView fx:id="img" fitHeight="750.0" fitWidth="563.0" layoutX="634.0" layoutY="-56.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/aaa-removebg-preview.png" />
+            </image>
+         </ImageView>
+      </children>
+   </AnchorPane>
+
+    <VBox alignment="CENTER" layoutX="59.0" layoutY="128.0" prefHeight="563.0" prefWidth="512.0" spacing="15" style="-fx-border-color: black; -fx-background-color: white;">
+      <Label text="Sign Up">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+
+        <!-- Username Input -->
+        <TextField fx:id="txtUsername" maxWidth="300" prefHeight="40.0" promptText="Enter Username">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+
+        <!-- Password Input -->
+        <PasswordField fx:id="txtPassword" maxWidth="300" prefHeight="40.0" promptText="Enter Password">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+
+        <!-- Confirm Password -->
+        <PasswordField fx:id="txtConfirmPassword" maxWidth="300" prefHeight="40.0" promptText="Confirm Password">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+
+        <!-- Role Selection -->
+        <HBox prefHeight="40.0" prefWidth="459.0" spacing="10">
+            <Label prefHeight="40.0" prefWidth="60.0" style="-fx-font-size: 14px;" text="Role:">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+            <ComboBox fx:id="cmbRole" maxWidth="180" prefHeight="40.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="ADMIN" />
+                        <String fx:value="RECEPTIONIST" />
+                        <String fx:value="THERAPIST" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+         <VBox.margin>
+            <Insets left="105.0" right="100.0" />
+         </VBox.margin>
+        </HBox>
+
+        <!-- Signup Button -->
+        <Button fx:id="btnSignUp" maxWidth="300" onAction="#btnSignUpOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: F6F1DE; -fx-text-fill: black; -fx-border-color: black;" text="Sign Up">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+
+        <!-- Login Redirect -->
+        <Hyperlink onAction="#goToLogin" text="Already have an account? Login" textFill="#3e3f5b">
+         <font>
+            <Font size="18.0" />
+         </font></Hyperlink>
+
+    </VBox>
+   <Label fx:id="lclcreate" layoutX="194.0" layoutY="69.0" prefHeight="35.0" prefWidth="336.0" text="Create your Account" textFill="BROWN">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+</AnchorPane>
