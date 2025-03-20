@@ -32,6 +32,12 @@ public class SignupPageController {
     private PasswordField txtConfirmPassword;
 
     @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
     private ComboBox<String> cmbRole;
 
     @FXML

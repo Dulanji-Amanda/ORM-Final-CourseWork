@@ -27,37 +27,51 @@
       </children>
    </AnchorPane>
 
-    <VBox alignment="CENTER" layoutX="59.0" layoutY="128.0" prefHeight="563.0" prefWidth="512.0" spacing="15" style="-fx-border-color: black; -fx-background-color: white;">
-      <Label text="Sign Up">
+          <VBox alignment="CENTER" layoutX="59.0" layoutY="128.0" prefHeight="563.0" prefWidth="512.0" spacing="15" style="-fx-border-color: black; -fx-background-color: white;">
+      <Label prefHeight="55.0" prefWidth="158.0" text="Sign Up">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <TextField fx:id="txtName" maxWidth="300.0" prefHeight="40.0" promptText="Enter Full Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="116.0" layoutY="139.0" maxWidth="300.0" prefHeight="40.0" promptText="Enter Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
 
-        <!-- Username Input -->
+              <!-- Username Input -->
         <TextField fx:id="txtUsername" maxWidth="300" prefHeight="40.0" promptText="Enter Username">
          <font>
             <Font size="14.0" />
-         </font></TextField>
-
-        <!-- Password Input -->
+         </font>
+      </TextField>
+   
+              <!-- Password Input -->
         <PasswordField fx:id="txtPassword" maxWidth="300" prefHeight="40.0" promptText="Enter Password">
          <font>
             <Font size="14.0" />
-         </font></PasswordField>
+         </font>
+      </PasswordField>
 
-        <!-- Confirm Password -->
+              <!-- Confirm Password -->
         <PasswordField fx:id="txtConfirmPassword" maxWidth="300" prefHeight="40.0" promptText="Confirm Password">
          <font>
             <Font size="14.0" />
-         </font></PasswordField>
+         </font>
+      </PasswordField>
 
-        <!-- Role Selection -->
+                    <!-- Role Selection -->
         <HBox prefHeight="40.0" prefWidth="459.0" spacing="10">
             <Label prefHeight="40.0" prefWidth="60.0" style="-fx-font-size: 14px;" text="Role:">
             <font>
                <Font size="14.0" />
-            </font></Label>
+            </font>
+         </Label>
             <ComboBox fx:id="cmbRole" maxWidth="180" prefHeight="40.0">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -72,19 +86,21 @@
          </VBox.margin>
         </HBox>
 
-        <!-- Signup Button -->
+              <!-- Signup Button -->
         <Button fx:id="btnSignUp" maxWidth="300" onAction="#btnSignUpOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: F6F1DE; -fx-text-fill: black; -fx-border-color: black;" text="Sign Up">
          <font>
             <Font size="18.0" />
-         </font></Button>
+         </font>
+      </Button>
 
-        <!-- Login Redirect -->
+              <!-- Login Redirect -->
         <Hyperlink onAction="#goToLogin" text="Already have an account? Login" textFill="#3e3f5b">
          <font>
             <Font size="18.0" />
-         </font></Hyperlink>
+         </font>
+      </Hyperlink>
 
-    </VBox>
+          </VBox>
    <Label fx:id="lclcreate" layoutX="194.0" layoutY="69.0" prefHeight="35.0" prefWidth="336.0" text="Create your Account" textFill="BROWN">
       <font>
          <Font name="System Bold" size="24.0" />
