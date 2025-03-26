@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.UserBoImpl;
 import lk.ijse.bo.custom.UserBo;
@@ -36,6 +37,9 @@ public class SignupPageController {
 
     @FXML
     private TextField txtName;
+
+    @FXML
+    private Label lbtforpw;
 
     @FXML
     private ComboBox<String> cmbRole;

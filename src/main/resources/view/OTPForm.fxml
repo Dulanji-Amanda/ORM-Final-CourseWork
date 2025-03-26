@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="otpPane" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OTPFormController">
+   <children>
+      <AnchorPane layoutX="40.0" layoutY="27.0" prefHeight="695.0" prefWidth="1120.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
+      <ImageView fx:id="imgBack" fitHeight="58.0" fitWidth="58.0" layoutX="64.0" layoutY="46.0" onMouseClicked="#imgBackOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backImg.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtOtp1" layoutX="228.0" layoutY="330.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-font-size: 24px; -fx-alignment: center;" />
+      <TextField fx:id="txtOtp2" layoutX="341.0" layoutY="330.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-font-size: 24px; -fx-alignment: center;" />
+      <TextField fx:id="txtOtp3" layoutX="457.0" layoutY="330.0" onKeyReleased="#moveToNextField" prefHeight="60.0" prefWidth="50.0" style="-fx-font-size: 24px; -fx-alignment: center;" />
+      <TextField fx:id="txtOtp4" layoutX="560.0" layoutY="330.0" onKeyReleased="#submitOtpOnEnter" prefHeight="60.0" prefWidth="50.0" style="-fx-font-size: 24px; -fx-alignment: center;" />
+      <Label fx:id="lblResendTimer" layoutX="334.0" layoutY="410.0" style="-fx-font-size: 16px; -fx-text-fill: red;" text="Try again in 1:00" />
+      <Label layoutX="222.0" layoutY="257.0" opacity="0.6" style="-fx-text-fill: #2B2B2B; -fx-font-size: 25px;" text="Enter the OTP sent your email address">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="lblResend" layoutX="466.0" layoutY="410.0" onMouseClicked="#resendOtp" style="-fx-font-size: 16px;" text="Resend">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnVerify" layoutX="237.0" layoutY="523.0" onAction="#btnVerifyOnAction" prefHeight="46.0" prefWidth="389.0" style="-fx-background-color: F6F1DE; -fx-border-color: black;" text="Verify">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblError" layoutX="432.0" layoutY="481.0" prefHeight="18.0" prefWidth="521.0" textAlignment="CENTER" />
+      <ImageView fx:id="girl" fitHeight="551.0" fitWidth="473.0" layoutX="733.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/otp-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

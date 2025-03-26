@@ -8,8 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginPageController">
+<AnchorPane fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginPageController">
    <children>
+      <AnchorPane fx:id="ap2" layoutX="40.0" layoutY="27.0" prefHeight="695.0" prefWidth="1120.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
       <AnchorPane layoutX="611.0" layoutY="168.0" prefHeight="532.0" prefWidth="462.0" style="-fx-border-color: black;">
          <children>
             <Label layoutX="177.0" layoutY="43.0" text="Sign In">
@@ -32,6 +33,11 @@
             <Label fx:id="lblCreateAcc" layoutX="238.0" layoutY="282.0" onMouseClicked="#lblCreateAccOnClick" prefHeight="26.0" prefWidth="174.0" text="Create a new Account" textFill="#3e3f5b">
                <font>
                   <Font name="Comic Sans MS Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbtforpw" layoutX="284.0" layoutY="428.0" onMouseClicked="#lblForgotPasswordOnAction" prefHeight="23.0" prefWidth="125.0" text="Forget Password ?" textFill="#594f4f">
+               <font>
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>

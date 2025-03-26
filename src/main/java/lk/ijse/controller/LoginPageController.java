@@ -36,6 +36,10 @@ public class LoginPageController {
     private TextField txtPassword;
 
     @FXML
+    private AnchorPane ap2;
+
+
+    @FXML
     private TextField txtUsername;
 
     private final AuthService authService = new AuthService(); // Injecting AuthService
@@ -62,8 +66,12 @@ public class LoginPageController {
     @FXML
     void lblCreateAccOnClick(MouseEvent event) {
         loadUI("/view/SignUpPage.fxml");
-
     }
+    @FXML
+    void lblForgotPasswordOnAction(MouseEvent event) {
+        loadUI("/view/ForgetPassword.fxml");
+    }
+
 
     private void navigateToDashBoard(Role role) {
         if (role == Role.ADMIN) { // enum ekn ena role ek blnv . ek constant value ekk
@@ -85,6 +93,7 @@ public class LoginPageController {
             showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
     }
+
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);

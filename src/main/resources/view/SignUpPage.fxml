@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="signupPage" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignupPageController">
-   <AnchorPane fx:id="ap2" layoutX="40.0" layoutY="27.0" prefHeight="694.0" prefWidth="1119.0" style="-fx-background-color: white;">
+   <AnchorPane fx:id="ap2" layoutX="40.0" layoutY="21.0" prefHeight="695.0" prefWidth="1120.0" style="-fx-background-color: white; -fx-background-radius: 20;">
       <children>
          <ImageView fx:id="img" fitHeight="750.0" fitWidth="563.0" layoutX="634.0" layoutY="-56.0" pickOnBounds="true" preserveRatio="true">
             <image>
