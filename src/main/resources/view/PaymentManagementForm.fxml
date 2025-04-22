@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentManagementController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="25.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="803.0">
+         <fill>
+            <LinearGradient endX="0.048" endY="0.712">
+               <stops>
+                  <Stop color="#1598d6" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="32.0" layoutY="33.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/HOME.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="105.0" layoutY="40.0" text="Manage Payment">
+         <font>
+            <Font name="Ubuntu" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPaymentId" layoutX="25.0" layoutY="144.0" prefWidth="237.0" promptText="Payment ID" />
+      <TextField fx:id="txtAmount" layoutX="25.0" layoutY="181.0" prefWidth="237.0" promptText="Amount" />
+      <DatePicker fx:id="dpPaymentDate" layoutX="303.0" layoutY="144.0" prefWidth="200.0" />
+      <ComboBox fx:id="cmbPatient" layoutX="24.0" layoutY="270.0" prefWidth="237.0" promptText="Select Patient" />
+      <JFXButton fx:id="btnSave" layoutX="551.0" layoutY="144.0" onAction="#btnSave_OnAction" prefWidth="100.0" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Save" />
+      <JFXButton fx:id="btnUpdate" layoutX="679.0" layoutY="144.0" onAction="#btnUpdate_OnAction" prefWidth="100.0" style="-fx-background-color: #ffc107; -fx-text-fill: black;" text="Update" />
+      <JFXButton fx:id="btnDelete" layoutX="551.0" layoutY="194.0" onAction="#btnDelete_OnAction" prefWidth="100.0" style="-fx-background-color: #dc3545; -fx-text-fill: white;" text="Delete" />
+      <JFXButton fx:id="btnClear" layoutX="681.0" layoutY="194.0" onAction="#btnClear_OnAction" prefWidth="100.0" style="-fx-background-color: #17a2b8; -fx-text-fill: white;" text="Clear" />
+      <TableView fx:id="tblPayment" layoutX="25.0" layoutY="350.0" prefHeight="331.0" prefWidth="803.0">
+         <columns>
+            <TableColumn fx:id="colPaymentId" prefWidth="150.0" text="Payment ID" />
+            <TableColumn fx:id="colAmount" prefWidth="100.0" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+            <TableColumn fx:id="colPatient" prefWidth="156.79998779296875" text="Patient" />
+            <TableColumn fx:id="colSession" prefWidth="150.39996337890625" text="Session ID" />
+         </columns>
+      </TableView>
+      <Label layoutX="24.0" layoutY="111.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Payment Details" />
+      <Label layoutX="25.0" layoutY="230.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Patient and Session Info" />
+      <TextField fx:id="txtSessionId" layoutX="24.0" layoutY="310.0" prefWidth="237.0" promptText="Session ID" />
+      <JFXButton fx:id="btnGetInvoice" layoutX="332.0" layoutY="283.0" onAction="#btnGetInvoice_OnAction" prefWidth="120.0" style="-fx-background-color: #6c63ff; -fx-text-fill: white;" text="Get Invoice" />
+      <ComboBox fx:id="cmbFilterStatus" layoutX="303.0" layoutY="181.0" onAction="#cmbPatientOnAction" prefHeight="26.0" prefWidth="200.0" promptText="Select Payment Status" />
+   </children>
+</AnchorPane>

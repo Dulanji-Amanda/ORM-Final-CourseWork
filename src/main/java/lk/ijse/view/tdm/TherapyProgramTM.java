@@ -10,4 +10,5 @@ public class TherapyProgramTM {
     private String programName;
     private int duration;
     private double fee;
+
 }

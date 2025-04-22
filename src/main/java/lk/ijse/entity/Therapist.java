@@ -29,4 +29,5 @@ public class Therapist {
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
     private List<TherapySession> therapySessions;
+
 }

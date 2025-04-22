@@ -105,4 +105,13 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
             return "TP00-001"; // First user ID
         }
     }
+
+    @Override
+    public TherapyProgram findById(String id) {
+        Session session = factoryConfiguration.getSession();
+        TherapyProgram program = session.get(TherapyProgram.class, id);
+        session.close();
+        return program;
+    }
+
 }

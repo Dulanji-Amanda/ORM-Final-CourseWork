@@ -7,6 +7,8 @@ import lk.ijse.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,12 +31,32 @@ public class UserDAOImpl  implements UserDAO {
         }
     }
 
+    @Override
+    public User findById(String id) {
+        return null;
+    }
+
     public User getUserByUsername(String username) {
         try (Session session = factoryConfiguration.getSession()) {
             return session.createQuery("FROM User WHERE username = :username", User.class)
                     .setParameter("username", username)
                     .uniqueResult();
         }
+    }
+
+    @Override
+    public ArrayList<String> getAllRolls() {
+        return null;
+    }
+
+    @Override
+    public User findByRoll(String selectedId) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public boolean isEmailExists(String email) {
+        return false;
     }
 
     @Override
@@ -66,4 +88,5 @@ public class UserDAOImpl  implements UserDAO {
     public List<User> getAll() {
         return List.of();
     }
+
 }

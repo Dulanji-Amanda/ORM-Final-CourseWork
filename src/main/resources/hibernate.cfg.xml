@@ -19,7 +19,6 @@
     <mapping class="lk.ijse.entity.User"/>
     <mapping class="lk.ijse.entity.Therapist"/>
     <mapping class="lk.ijse.entity.TherapistProgram"/>
-    <mapping class="lk.ijse.entity.Invoice"/>
     <mapping class="lk.ijse.entity.Payment"/>
     <mapping class="lk.ijse.entity.Patient"/>
     <mapping class="lk.ijse.entity.TherapistProgramID"/>

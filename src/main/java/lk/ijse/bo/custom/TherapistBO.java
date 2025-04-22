@@ -11,6 +11,6 @@ public interface TherapistBO {
     boolean updateTherapist(TherapistDTO therapistDTO);
     boolean deleteTherapist(String id) throws Exception;
     ArrayList<TherapistDTO> loadAllTherapists() throws SQLException, ClassNotFoundException ;
-    String getNaxtTherapistID();
+    String getNextTherapistID();
 
 }

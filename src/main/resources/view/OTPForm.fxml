@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="girl" fitHeight="504.0" fitWidth="502.0" layoutX="604.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../CalmMinds%20old/CalmMinds/src/main/resources/images/fp.png" />
+                  <Image url="@../images/fp.png" />
                </image>
             </ImageView>
          </children>

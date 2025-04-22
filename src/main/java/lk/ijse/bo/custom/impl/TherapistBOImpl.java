@@ -29,7 +29,7 @@ public class TherapistBOImpl implements TherapistBO {
     }
 
     @Override
-    public String getNaxtTherapistID() {
+    public String getNextTherapistID() {
         return therapistDAO.getNextId();
     }
 
@@ -54,8 +54,5 @@ public class TherapistBOImpl implements TherapistBO {
     public boolean deleteTherapist(String therapistId) throws Exception {
         return therapistDAO.deleteByPK(therapistId);
     }
-
-
-
 
 }

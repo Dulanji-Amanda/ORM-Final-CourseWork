@@ -6,13 +6,14 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import lk.ijse.bo.custom.UserBo;
+import lk.ijse.bo.custom.impl.UserBoImpl;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -34,9 +35,6 @@ public class ForgetPasswordFormController  {
     private Label lblLogin;
 
     @FXML
-    private AnchorPane whiteap;
-
-    @FXML
     private AnchorPane rootPane;
 
     @FXML
@@ -44,7 +42,7 @@ public class ForgetPasswordFormController  {
 
     public static String emailAddress = "";
 
-    //public UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+    private final UserBo userBo = new UserBoImpl();
 
     public static String otpGenerated = "0000";
 
@@ -59,8 +57,8 @@ public class ForgetPasswordFormController  {
     void btnSubmitOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (areFieldsEmpty()) {
             showErrorMessage("*Required fields are empty");
-//        } else if (!isValidEmailAddress()) {
-//            showErrorMessage("*Invalid email address");
+        } else if (!isValidEmailAddress()) {
+            showErrorMessage("*Invalid email address");
         } else {
             emailAddress = txtEmail.getText();
 
@@ -80,9 +78,9 @@ public class ForgetPasswordFormController  {
         return String.valueOf(otp);
     }
 
-//    private boolean isValidEmailAddress() throws SQLException, ClassNotFoundException {
-//        return userBO.isEmailExists(txtEmail.getText());
-//    }
+    private boolean isValidEmailAddress() throws SQLException, ClassNotFoundException {
+        return userBo.isEmailExists(txtEmail.getText());
+    }
 
     private boolean areFieldsEmpty() {
         return txtEmail.getText().isEmpty();

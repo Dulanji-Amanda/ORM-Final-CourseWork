@@ -76,9 +76,9 @@ public class TherapistTableFormController implements Initializable {
         if (selectedItem == null) {
             showAlert("Warning", "Please select a therapist", Alert.AlertType.WARNING);
         }else {
-            //TherapyProgramManagementFormController.getInstance().setTherapistId(selectedItem.getId());
+            TherapySessionManagementFormController.getInstance().setTherapistId(selectedItem.getTherapistID());
 
         }
-
     }
+
 }

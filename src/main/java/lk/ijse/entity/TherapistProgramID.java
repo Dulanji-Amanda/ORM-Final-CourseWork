@@ -16,4 +16,5 @@ public class TherapistProgramID implements Serializable {
 
     @Column(name = "program_id", length = 50)
     private String programId;
+
 }

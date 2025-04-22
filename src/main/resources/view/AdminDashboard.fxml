@@ -156,12 +156,12 @@
                      <children>
                         <ImageView fx:id="imgLogout" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onLogoutClick" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../CalmMinds%20old/CalmMinds/src/main/resources/images/HOME.png" />
+                              <Image url="@../images/HOME.png" />
                            </image>
                         </ImageView>
                         <ImageView fx:id="imgSettings" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onSettingsClick" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../CalmMinds%20old/CalmMinds/src/main/resources/images/setting.png" />
+                              <Image url="@../images/setting.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="120.0" />

@@ -239,4 +239,24 @@ public class TherapyProgramManagementFormController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    void tblTherapyProgramsOnClick(MouseEvent event) {
+        TherapyProgramTM selectedItem = tblTherapyPrograms.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            showAlert("Warning", "Please select a therapy program", Alert.AlertType.WARNING);
+        }else {
+            txtProgramId.setText(selectedItem.getProgramId());
+            txtProgramName.setText(selectedItem.getProgramName());
+            txtProgramDuration.setText(String.valueOf(selectedItem.getDuration()));
+            txtFee.setText(String.valueOf(selectedItem.getFee()));
+//            txtTherapistId.setText(selectedItem.getTherapistId());
+
+            btnSave.setDisable(true);
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+        }
+    }
+
 }

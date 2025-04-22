@@ -29,4 +29,5 @@ public class TherapyProgram {
 
     @OneToMany(mappedBy = "therapyProgram", cascade = CascadeType.ALL)
     private List<TherapySession> therapySessions;
+
 }

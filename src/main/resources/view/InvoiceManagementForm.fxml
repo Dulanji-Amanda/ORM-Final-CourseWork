@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.InvoiceManagementController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="23.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="803.0">
+         <fill>
+            <LinearGradient endX="0.048" endY="0.712">
+               <stops>
+                  <Stop color="#1598d6" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="32.0" layoutY="33.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/HOME.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="105.0" layoutY="40.0" text="Manage Invoice">
+         <font>
+            <Font name="Ubuntu" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearch" layoutX="523.0" layoutY="149.0" onKeyReleased="#searchPatient" prefHeight="26.0" prefWidth="290.0" promptText="Search by Name or ID" />
+      <TextField fx:id="txtInvoiceId" layoutX="25.0" layoutY="130.0" prefHeight="26.0" prefWidth="237.0" promptText="Invoice ID" />
+      <DatePicker fx:id="dpInvoiceDate" layoutX="294.0" layoutY="130.0" prefWidth="200.0" />
+      <TextField fx:id="txtTotalAmount" layoutX="25.0" layoutY="170.0" prefHeight="26.0" prefWidth="237.0" promptText="Total Amount" />
+      <TextField fx:id="txtStatus" layoutX="294.0" layoutY="170.0" prefWidth="200.0" promptText="Status" />
+      <JFXButton fx:id="btnSave" layoutX="70.0" layoutY="237.0" onAction="#btnSave_OnAction" prefWidth="100.0" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Save" />
+      <JFXButton fx:id="btnUpdate" layoutX="277.0" layoutY="237.0" onAction="#btnUpdate_OnAction" prefWidth="100.0" style="-fx-background-color: #ffc107; -fx-text-fill: black;" text="Update" />
+      <JFXButton fx:id="btnDelete" layoutX="482.0" layoutY="237.0" onAction="#btnDelete_OnAction" prefWidth="100.0" style="-fx-background-color: #dc3545; -fx-text-fill: white;" text="Delete" />
+      <JFXButton fx:id="btnExportPDF" layoutX="676.0" layoutY="237.0" onAction="#btnExportPDF_OnAction" prefWidth="100.0" style="-fx-background-color: #007bff; -fx-text-fill: white;" text="Export PDF" />
+      <TableView fx:id="tblInvoice" layoutX="10.0" layoutY="278.0" prefHeight="390.0" prefWidth="830.0">
+         <columns>
+            <TableColumn fx:id="colInvoiceId" prefWidth="200.0" text="Invoice ID" />
+            <TableColumn fx:id="colDate" prefWidth="200.0" text="Date" />
+            <TableColumn fx:id="colTotalAmount" prefWidth="244.79995727539062" text="Total Amount" />
+            <TableColumn fx:id="colStatus" prefWidth="183.199951171875" text="Status" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="btnAddNewPatient" layoutX="668.0" layoutY="42.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #80C4E9;" text="+ New Patient" />
+   </children>
+</AnchorPane>

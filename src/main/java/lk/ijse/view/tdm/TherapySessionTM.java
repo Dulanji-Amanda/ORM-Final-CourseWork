@@ -17,4 +17,5 @@ public class TherapySessionTM {
     private String patientId;
     private String programId;
     private String therapistId;
+
 }

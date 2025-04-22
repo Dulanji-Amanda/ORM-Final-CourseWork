@@ -62,7 +62,6 @@ public class TherapyProgramsBOImpl implements TherapyProgramsBO {
         );
     }
 
-
     @Override
     public boolean updateTherapyPrograms(TherapyProgramDTO therapyProgramDTO) {
         // Retrieve the Therapist entity using the therapist ID
@@ -89,6 +88,5 @@ public class TherapyProgramsBOImpl implements TherapyProgramsBO {
     public boolean deleteTherapyPrograms(String id) throws Exception {
         return therapyProgramDAO.deleteByPK(id);
     }
-
 
 }

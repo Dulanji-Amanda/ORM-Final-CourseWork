@@ -79,11 +79,12 @@ public class AdminPageController implements Initializable {
 
     @FXML
     void btnPatientOnAction(ActionEvent event) {
+        loadUI("/view/PatientManagementForm.fxml");
     }
 
     @FXML
     void btnPaymentOnAction(ActionEvent event) {
-
+        loadUI("/view/PaymentManagementForm.fxml");
     }
 
     @FXML
@@ -98,12 +99,12 @@ public class AdminPageController implements Initializable {
 
     @FXML
     void onLogoutClick(MouseEvent event) {
-
+        navigateTo("/view/LoginPage.fxml");
     }
 
     @FXML
     void onSettingsClick(MouseEvent event) {
-
+        loadUI("/view/SettingForm.fxml");
     }
 
     private void loadUI(String resource) {
@@ -125,7 +126,6 @@ public class AdminPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/Home.fxml");
-
     }
 
     private void navigateTo(String fxmlPath) {
@@ -142,4 +142,5 @@ public class AdminPageController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
         }
     }
+
 }

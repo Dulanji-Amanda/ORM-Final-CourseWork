@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PatientManagementController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="20.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="803.0">
+         <fill>
+            <LinearGradient endX="0.048" endY="0.712">
+               <stops>
+                  <Stop color="#1598d6" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="32.0" layoutY="33.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/HOME.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="105.0" layoutY="40.0" text="Manage Patient">
+         <font>
+            <Font name="Ubuntu" size="27.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAddNewPatient" layoutX="660.0" layoutY="42.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #80C4E9;" text="+ New Patient" />
+      <TextField fx:id="txtSearch" layoutX="20.0" layoutY="270.0" onKeyReleased="#searchPatient" prefHeight="26.0" prefWidth="290.0" promptText="Search by Name or ID" />
+      <TextField fx:id="txtPatientId" layoutX="20.0" layoutY="132.0" prefHeight="26.0" prefWidth="191.0" promptText="Patient ID:" />
+      <TextField fx:id="txtPatientName" layoutX="20.0" layoutY="179.0" prefHeight="26.0" prefWidth="330.0" promptText="Patient Name:" />
+      <TextField fx:id="txtContact" layoutX="20.0" layoutY="224.0" prefHeight="26.0" prefWidth="191.0" promptText="Contact Info:" />
+      <ComboBox fx:id="cmbGender" layoutX="230.0" layoutY="224.0" prefHeight="26.0" prefWidth="120.0" promptText="Gender">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Male" />
+               <String fx:value="Female" />
+               <String fx:value="Other" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ImageView fx:id="imgPatient" fitHeight="100" fitWidth="100" layoutX="670.0" layoutY="130.0" style="-fx-border-color: gray; -fx-border-width: 1;" />
+      <TextArea fx:id="historyArea" layoutX="335.0" layoutY="269.0" prefHeight="118.0" prefWidth="490.0" promptText="Medical History:" />
+      <JFXButton fx:id="btnSave" layoutX="21.0" layoutY="314.0" onAction="#btnSave_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: #218838;" text="Save" textFill="WHITE" />
+      <JFXButton fx:id="btnUpdate" layoutX="116.0" layoutY="314.0" onAction="#btnUpdate_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: #F9CB43;" text="Update" />
+      <JFXButton fx:id="btnDelete" layoutX="211.0" layoutY="314.0" onAction="#btnDelete_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <TableView fx:id="tblPatient" layoutX="15.0" layoutY="402.0" onMouseClicked="#tblPatientOnClick" prefHeight="284.0" prefWidth="818.0">
+         <columns>
+            <TableColumn fx:id="clmPatientId" prefWidth="85.0" text="Patient ID" />
+            <TableColumn fx:id="clmPatientName" prefWidth="164.00000762939453" text="Patient Name" />
+            <TableColumn fx:id="clmContact" prefWidth="180.79998779296875" text="Contact" />
+            <TableColumn fx:id="clmGender" prefWidth="155.19998168945312" text="Gender" />
+            <TableColumn fx:id="clmMedicalHistory" prefWidth="232.00006103515625" text="Medical History" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

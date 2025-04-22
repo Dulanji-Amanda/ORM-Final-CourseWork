@@ -12,4 +12,5 @@ public interface TherapyProgramsBO {
     boolean deleteTherapyPrograms(String id) throws Exception;
     ArrayList<TherapyProgramDTO> loadAllTherapyPrograms() throws SQLException, ClassNotFoundException ;
     String getNextTherapyProgramId();
+
 }
