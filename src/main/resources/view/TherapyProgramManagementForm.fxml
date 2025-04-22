@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapyProgramManagementFormController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="27.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 30px; -fx-arc-width: 30px;" width="803.0">
+            <fill>
+                <LinearGradient endX="0.048" endY="0.712">
+                    <stops>
+                        <Stop color="#1598d6" />
+                        <Stop color="WHITE" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView id="imgHome" fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="38.0" layoutY="28.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/home.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Label layoutX="115.0" layoutY="34.0" text="Manage Therapy Programs">
+            <font>
+                <Font name="Ubuntu" size="27.0" />
+            </font>
+        </Label>
+        <JFXButton id="btnAddNewTherapist" fx:id="btnAddNewTherapist" layoutX="624.0" layoutY="36.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="174.0" style="-fx-cursor: hand; -fx-background-color: #007bff;" text="+ New Therapy Programs" textFill="WHITE" />
+        <TextField fx:id="txtProgramId" layoutX="28.0" layoutY="125.0" prefHeight="26.0" prefWidth="262.0" promptText="Therapy Program ID:" />
+        <TextField fx:id="txtProgramName" layoutX="28.0" layoutY="166.0" prefHeight="26.0" prefWidth="494.0" promptText="Program Name:" />
+        <TextField fx:id="txtProgramDuration" layoutX="28.0" layoutY="208.0" prefHeight="26.0" prefWidth="494.0" promptText="Duration:" />
+        <TextField fx:id="txtFee" layoutX="28.0" layoutY="248.0" prefHeight="26.0" prefWidth="494.0" promptText="Fee:" />
+        <JFXButton id="btnSave" fx:id="btnSave" layoutX="136.0" layoutY="307.0" onAction="#btnSave_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: #218838;" text="Save" />
+        <JFXButton id="btnUpdate" fx:id="btnUpdate" layoutX="238.0" layoutY="307.0" onAction="#btnUpdate_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: #F9CB43;" text="Update" />
+        <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="340.0" layoutY="307.0" onAction="#btnDelete_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: red;" text="Delete" textFill="WHITE" />
+        <TableView fx:id="tblTherapyPrograms" layoutX="31.0" layoutY="362.0" prefHeight="320.0" prefWidth="795.0">
+            <columns>
+                <TableColumn fx:id="clmProgramId" prefWidth="124.0000057220459" text="Program ID" />
+                <TableColumn fx:id="clmProgramName" prefWidth="264.0" text="Program Name" />
+                <TableColumn fx:id="clmDuration" prefWidth="223.99996948242188" text="Duration" />
+                <TableColumn fx:id="clmFee" prefWidth="182.40008544921875" text="Fee" />
+            </columns>
+        </TableView>
+        <AnchorPane fx:id="addTherapistsPane" layoutX="583.0" layoutY="115.0" prefHeight="206.0" prefWidth="230.0" />
+    </children>
+</AnchorPane>

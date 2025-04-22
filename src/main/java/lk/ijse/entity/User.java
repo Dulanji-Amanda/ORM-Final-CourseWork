@@ -2,16 +2,13 @@ package lk.ijse.entity;
 
 import jakarta.persistence.*;
 import lk.ijse.util.Role;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "user")
-
 
 public class User {
     @Id
@@ -20,6 +17,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false,unique = true)
+    private String email;
+
     @Column(nullable = false)
     private String password; // Will be stored as a hashed password (BCrypt)
 
@@ -27,8 +27,9 @@ public class User {
     @Column(nullable = false)
     private Role role; // Enum (ADMIN, RECEPTIONIST, THERAPIST)
 
-    public User(String username, String hashedPassword, Role role) {
+    public User(String username,String email, String hashedPassword, Role role) {
         this.username = username;
+        this.email = email;
         this.password = hashedPassword;
         this.role = (role != null) ? role : Role.RECEPTIONIST;
     }

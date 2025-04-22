@@ -1,104 +1,145 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
-public class AdminPageController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
-    @FXML
-    private AnchorPane ap;
+public class AdminPageController implements Initializable {
 
-    @FXML
-    private JFXButton appoimentbtn;
-
-    @FXML
-    private JFXButton dashboardbtn;
+    private static AdminPageController instance;
 
     @FXML
-    private ImageView homeId;
+    private Button btnAppointment;
 
     @FXML
-    private Label lbl;
+    private Button btnDashboard;
 
     @FXML
-    private Label lblAdminID;
+    private Button btnPatient;
 
     @FXML
-    private Label lbladmin;
+    private Button btnPayment;
 
     @FXML
-    private AnchorPane pane;
+    private Button btnTherapist;
 
     @FXML
-    private JFXButton patienttbtn;
+    private Button btnTherapyProgram;
 
     @FXML
-    private JFXButton paymentbtn;
+    private ImageView imgLogout;
 
     @FXML
-    private ImageView settingId;
+    private ImageView imgSettings;
 
     @FXML
-    private JFXButton therapistbtn;
+    private Label lblAdd;
 
     @FXML
-    private JFXButton therapyprogrambtn;
+    private Label lblAdminId;
 
     @FXML
-    private VBox vb1;
+    private Label lblWelcome;
 
     @FXML
-    private VBox vb2;
+    private AnchorPane mainContent;
 
     @FXML
-    void HomeOnMouseClicked(MouseEvent event) {
+    private AnchorPane rootPane;
+
+    public AdminPageController() {
+        instance = this;
+    }
+
+    public static AdminPageController getInstance() {
+        return instance;
+    }
+
+    @FXML
+    void btnAppointmentOnAction(ActionEvent event) {
+        loadUI("/view/TherapySessionManagementForm.fxml");
+    }
+
+    @FXML
+    void btnDashboardOnAction(ActionEvent event) {
+        loadUI("/view/Home.fxml");
+    }
+
+    @FXML
+    void btnPatientOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void adminIDonAction(MouseEvent event) {
+    void btnTherapistOnAction(ActionEvent event) {
+        loadUI("/view/TherapistManagementForm.fxml");
+    }
+
+    @FXML
+    void btnTherapyProgramOnAction(ActionEvent event) {
+        loadUI("/view/TherapyProgramManagementForm.fxml");
+    }
+
+    @FXML
+    void onLogoutClick(MouseEvent event) {
 
     }
 
     @FXML
-    void appoimentbtnOnAction(ActionEvent event) {
+    void onSettingsClick(MouseEvent event) {
 
     }
 
-    @FXML
-    void dashboardbtnbtnOnAction(ActionEvent event) {
+    private void loadUI(String resource) {
+        mainContent.getChildren().clear();
+        try {
+            mainContent.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        navigateTo("/view/Home.fxml");
 
     }
 
-    @FXML
-    void patienttbtnOnAction(ActionEvent event) {
+    private void navigateTo(String fxmlPath) {
+        try {
+            mainContent.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
 
+            load.prefWidthProperty().bind(mainContent.widthProperty());
+            load.prefHeightProperty().bind(mainContent.heightProperty());
+            mainContent.getChildren().add(load);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
+        }
     }
-
-    @FXML
-    void paymentbtnbtnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void settingOnMouseClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void therapistbtnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void therapyprogrambtnOnAction(ActionEvent event) {
-
-    }
-
 }

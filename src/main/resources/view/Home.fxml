@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="homepane" prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeController">
+    <children>
+        <AnchorPane layoutX="44.0" layoutY="37.0" prefHeight="194.0" prefWidth="762.0" style="-fx-background-color: #577BC1; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="43.0" layoutY="87.0" prefHeight="42.0" prefWidth="286.0" text="Have a nice Day!">
+                    <font>
+                        <Font name="Comic Sans MS Bold Italic" size="34.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="194.0" fitWidth="191.0" layoutX="527.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/dash.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="date" layoutX="43.0" layoutY="10.0" prefHeight="26.0" prefWidth="191.0" text="Label" />
+                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/calendar.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Button fx:id="logoutbtn" layoutX="647.0" layoutY="597.0" mnemonicParsing="false" onAction="#logoutbtnOnAction" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #577BC1;" text="Log Out" textFill="WHITE">
+            <font>
+                <Font name="Comic Sans MS Bold Italic" size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="771.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/logout.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

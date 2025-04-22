@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapistManagementFormController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="27.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="803.0">
+            <fill>
+                <LinearGradient endX="0.048" endY="0.712">
+                    <stops>
+                        <Stop color="#1598d6" />
+                        <Stop color="WHITE" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView id="imgHome" fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="32.0" layoutY="26.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/home.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Label layoutX="105.0" layoutY="34.0" text="Manage Therapists">
+            <font>
+                <Font name="Ubuntu" size="27.0" />
+            </font>
+        </Label>
+        <JFXButton id="btnAddNewTherapist" fx:id="btnAddNewTherapist" layoutX="664.0" layoutY="32.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #007bff;" text="+ New Therapist" textFill="WHITE" />
+        <TextField fx:id="txtTherapistId" layoutX="27.0" layoutY="131.0" prefHeight="26.0" prefWidth="262.0" promptText="Therapist ID:" />
+        <TextField fx:id="txtTherapistName" layoutX="27.0" layoutY="176.0" prefHeight="26.0" prefWidth="522.0" promptText="Therapist Name:" />
+        <TextField fx:id="txtTherapistSpecialty" layoutX="27.0" layoutY="218.0" prefHeight="26.0" prefWidth="522.0" promptText="Specialty:" />
+        <TextField fx:id="txtTherapistAvailability" layoutX="27.0" layoutY="259.0" prefHeight="26.0" prefWidth="522.0" promptText="Availability Schedule:" />
+        <JFXButton id="btnSave" fx:id="btnSave" layoutX="174.0" layoutY="316.0" onAction="#btnSave_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: #218838;" text="Save" />
+        <JFXButton id="btnUpdate" fx:id="btnUpdate" layoutX="268.0" layoutY="316.0" onAction="#btnUpdate_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: #F9CB43;" text="Update" />
+        <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="361.0" layoutY="316.0" onAction="#btnDelete_OnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-cursor: hand; -fx-background-color: red;" text="Delete" textFill="WHITE" />
+        <TableView fx:id="tblTherapists" layoutX="27.0" layoutY="369.0" onMouseClicked="#tblTherapistsOnClick" prefHeight="300.0" prefWidth="795.0">
+            <columns>
+                <TableColumn fx:id="clmTherapistId" prefWidth="120.0" text="Therapist ID" />
+                <TableColumn fx:id="clmTherapistName" prefWidth="192.00006103515625" text="Therapist Name" />
+                <TableColumn fx:id="clmTherapistSpeciality" prefWidth="328.79998779296875" text="Specialty" />
+                <TableColumn fx:id="clmTherapisstAvailability" maxWidth="337.60002441406255" prefWidth="153.60003662109375" text="Availability" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

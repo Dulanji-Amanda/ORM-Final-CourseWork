@@ -1,6 +1,11 @@
 package lk.ijse.dao.custom;
 
+import java.util.List;
+
 public interface CrudDAO <T>{
-    void save(T entity);
-    public String getNextId();
+    boolean save(T entity);
+    boolean update(T entity);
+    boolean deleteByPK(String id) throws Exception;
+    List<T> getAll();
+    String getNextId();
 }
