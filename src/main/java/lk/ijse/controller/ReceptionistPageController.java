@@ -16,10 +16,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AdminPageController implements Initializable {
-
-    private static AdminPageController instance;
-
+public class ReceptionistPageController implements Initializable {
     @FXML
     private Button btnAppointment;
 
@@ -33,12 +30,6 @@ public class AdminPageController implements Initializable {
     private Button btnPayment;
 
     @FXML
-    private Button btnTherapist;
-
-    @FXML
-    private Button btnTherapyProgram;
-
-    @FXML
     private ImageView imgLogout;
 
     @FXML
@@ -48,9 +39,6 @@ public class AdminPageController implements Initializable {
     private Label lblAdd;
 
     @FXML
-    private Label lblAdminId;
-
-    @FXML
     private Label lblWelcome;
 
     @FXML
@@ -58,14 +46,6 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
-
-    public AdminPageController() {
-        instance = this;
-    }
-
-    public static AdminPageController getInstance() {
-        return instance;
-    }
 
     @FXML
     void btnAppointmentOnAction(ActionEvent event) {
@@ -88,30 +68,18 @@ public class AdminPageController implements Initializable {
     }
 
     @FXML
-    void btnTherapistOnAction(ActionEvent event) {
-        loadUI("/view/TherapistManagementForm.fxml");
-    }
-
-    @FXML
-    void btnTherapyProgramOnAction(ActionEvent event) {
-        loadUI("/view/TherapyProgramManagementForm.fxml");
-    }
-
-    @FXML
     void onLogoutClick(MouseEvent event) {
-//        navigateTo("/view/LoginPage.fxml");
         rootPane.getChildren().clear();
         try {
             rootPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/LoginPage.fxml"))));
         } catch (IOException e) {
-            showAlert("Error", "Failed load dashboard", Alert.AlertType.ERROR);
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
-
     }
 
     @FXML
     void onSettingsClick(MouseEvent event) {
-        loadUI("/view/SettingForm.fxml");
+        navigateTo("/view/SettingForm.fxml");
     }
 
     private void loadUI(String resource) {
@@ -130,11 +98,6 @@ public class AdminPageController implements Initializable {
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/Home.fxml");
-    }
-
     private void navigateTo(String fxmlPath) {
         try {
             mainContent.getChildren().clear();
@@ -148,6 +111,10 @@ public class AdminPageController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
         }
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        navigateTo("/view/Home.fxml");
     }
 
 }

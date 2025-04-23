@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ReceptionistPageController">
+   <children>
+      <VBox layoutX="61.0" layoutY="45.0" prefHeight="700.0" prefWidth="250.0" style="-fx-background-radius: 30;">
+         <children>
+            <VBox prefHeight="700.0" prefWidth="250.0" style="-fx-background-radius: 17; -fx-background-color: F6F1DE; -fx-border-color: black; -fx-border-radius: 17;">
+               <children>
+                  <AnchorPane prefHeight="52.0" prefWidth="250.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="-4.0" prefHeight="60.0" prefWidth="254.0" text="CALM MINDS">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="24.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.5" centerY="0.8068181782057791" radius="0.5">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="0.95686274766922" blue="0.572549045085907" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="lblWelcome" style="-fx-text-fill: black; -fx-font-size: 16px;" text="Welcome, Receptionist" />
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="lblAdd" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 0 0 0 10;" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Dashboard">
+                     <font>
+                        <Font name="Comic Sans MS" size="17.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="18.66" radius="8.245000000000001" width="16.32">
+                           <color>
+                              <Color red="0.9578947424888611" green="0.9366081953048706" blue="0.9366081953048706" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="35.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnPatient" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Patient">
+                     <font>
+                        <Font name="Comic Sans MS" size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow height="18.66" radius="8.245000000000001" width="16.32">
+                           <color>
+                              <Color red="0.9578947424888611" green="0.9366081953048706" blue="0.9366081953048706" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnAppointment" mnemonicParsing="false" onAction="#btnAppointmentOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Appointment">
+                     <font>
+                        <Font name="Comic Sans MS" size="17.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="18.66" radius="8.245000000000001" width="16.32">
+                           <color>
+                              <Color red="0.9263157844543457" green="0.9091618061065674" blue="0.9091618061065674" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnPayment" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Payment">
+                     <font>
+                        <Font name="Comic Sans MS" size="17.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="18.66" radius="8.245000000000001" width="16.32">
+                           <color>
+                              <Color red="0.9263157844543457" green="0.9057310223579407" blue="0.9057310223579407" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="156.0">
+                     <children>
+                        <ImageView fx:id="imgLogout" fitHeight="40.0" fitWidth="44.0" onMouseClicked="#onLogoutClick" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/backImg.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imgSettings" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onSettingsClick" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/setting.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="120.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="150.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="mainContent" layoutX="323.0" layoutY="45.0" prefHeight="680.0" prefWidth="850.0" style="-fx-background-radius: 18; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 18;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</AnchorPane>
