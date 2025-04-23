@@ -84,6 +84,9 @@ public class AdminPageController implements Initializable {
         loadUI("/view/PaymentManagementForm.fxml");
     }
 
+
+
+
     @FXML
     void btnTherapistOnAction(ActionEvent event) {
         loadUI("/view/TherapistManagementForm.fxml");
