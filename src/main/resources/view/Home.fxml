@@ -3,7 +3,6 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -43,7 +42,6 @@
                 <Image url="@../images/logout.png" />
             </image>
         </ImageView>
-      <PieChart fx:id="therapyPieChart" layoutX="54.0" layoutY="288.0" prefHeight="300" prefWidth="300" />
       <BarChart fx:id="paymentBarChart" layoutX="415.0" layoutY="288.0" prefHeight="300" prefWidth="400">
          <xAxis>
             <CategoryAxis label="Payment Status" />
@@ -52,5 +50,10 @@
             <NumberAxis label="Count" />
          </yAxis>
       </BarChart>
+      <ImageView fitHeight="526.0" fitWidth="435.0" layoutX="8.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/nurse.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

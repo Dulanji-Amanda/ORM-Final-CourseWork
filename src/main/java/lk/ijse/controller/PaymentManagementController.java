@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +21,9 @@ import lk.ijse.dto.PaymentDTO;
 import lk.ijse.entity.Patient;
 import lk.ijse.view.tdm.PaymentTM;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -125,11 +128,14 @@ public class PaymentManagementController implements Initializable {
         loadPatientCombo();
         loadPayments();
         cmbFilterStatus.setItems(FXCollections.observableArrayList("ALL", "PENDING", "COMPLETED"));
-
     }
 
     private void generateNewPaymentID() {
         txtPaymentId.setText(paymentBO.getNextPaymentID());
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+        btnClear.setDisable(true);
     }
 
     private void loadPayments() {
@@ -154,6 +160,24 @@ public class PaymentManagementController implements Initializable {
         } catch (Exception e) {
             showAlert("Error", "Failed to load Payments!", Alert.AlertType.ERROR);
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void tblPaymentOnClicked(MouseEvent event) {
+        PaymentTM selectedItem = tblPayment.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            txtPaymentId.setText(selectedItem.getPaymentId());
+            txtAmount.setText(String.valueOf(selectedItem.getAmount()));
+            dpPaymentDate.setValue(selectedItem.getPaymentDate());
+            cmbFilterStatus.setValue(selectedItem.getStatus());
+            cmbPatient.setValue(selectedItem.getPatientId());
+            txtSessionId.setText(selectedItem.getSessionId());
+
+            btnSave.setDisable(true);
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+            btnClear.setDisable(false);
         }
     }
 
@@ -182,13 +206,8 @@ public class PaymentManagementController implements Initializable {
     }
 
     @FXML
-    void btnClear_OnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnDelete_OnAction(ActionEvent event) {
-
+    void btnClear_OnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+        clearFields();
     }
 
     @FXML
@@ -196,24 +215,40 @@ public class PaymentManagementController implements Initializable {
 
     }
 
+    private void clearFields() throws SQLException, ClassNotFoundException {
+        txtPaymentId.clear();
+        txtAmount.clear();
+        dpPaymentDate.setValue(null);
+        cmbFilterStatus.getSelectionModel().clearSelection();
+        cmbPatient.getSelectionModel().clearSelection();
+        txtSessionId.clear();
+
+        generateNewPaymentID();
+    }
+
     @FXML
-    void btnSave_OnAction(ActionEvent event) {
+    void btnSave_OnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         boolean isSave =  savePaymentWithSession();
         if (isSave) {
             showAlert("Success", "Payment Saved!", Alert.AlertType.INFORMATION);
         }else{
             showAlert("Error", "Failed to save payment!", Alert.AlertType.ERROR);
         }
-    }
-
-    @FXML
-    void btnUpdate_OnAction(ActionEvent event) {
-
+        clearFields();
     }
 
     @FXML
     void navigateToHome(MouseEvent event) {
+        loadUI("/view/Home.fxml");
+    }
 
+    private void loadUI(String resource) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
+            fxmlLoader.load();
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
+        }
     }
 
     public boolean savePaymentWithSession() {

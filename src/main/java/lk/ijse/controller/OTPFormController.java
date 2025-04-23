@@ -47,9 +47,6 @@ public class OTPFormController {
     private TextField txtOtp2;
 
     @FXML
-    private AnchorPane whiteap;
-
-    @FXML
     private TextField txtOtp3;
 
     @FXML
@@ -121,7 +118,7 @@ public class OTPFormController {
         System.out.println((txtOtp1.getText() + txtOtp2.getText() + txtOtp3.getText() + txtOtp4.getText()));
         if ((txtOtp1.getText() + txtOtp2.getText() + txtOtp3.getText() + txtOtp4.getText()).equals(CORRECT_OTP)) {
 
-            loadUI("/com/example/stitchwave/OTPVerifiedForm.fxml");
+            loadUI("/view/OTPVerifiedForm.fxml");
         } else {
             showErrorMessage("Incorrect OTP. Please try again.");
         }

@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import lk.ijse.bo.custom.UserBo;
+import lk.ijse.bo.custom.impl.UserBoImpl;
+import lk.ijse.dto.UserDTO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -40,9 +43,6 @@ public class OTPVerifiedFormController {
     private Label lblLogin;
 
     @FXML
-    private AnchorPane whiteap;
-
-    @FXML
     private AnchorPane rootPane;
 
     @FXML
@@ -59,7 +59,7 @@ public class OTPVerifiedFormController {
 
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
 
-    //public UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
+    private final UserBo userBo = new UserBoImpl();
 
     private boolean isPasswordVisible = false;
 
@@ -71,7 +71,7 @@ public class OTPVerifiedFormController {
     }
 
     @FXML
-    void btnResetOnAction(ActionEvent event) {
+    void btnResetOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (areFieldsEmpty()) {
             showErrorMessage("*Required fields cannot be empty.");
         } else if (!isValidPassword(txtPassword.getText())) {
@@ -79,11 +79,11 @@ public class OTPVerifiedFormController {
         } else if (!txtPassword.getText().equals(txtConfirmPassword.getText())) {
             showErrorMessage("*Passwords do not match.");
         } else {
-//                if (updateUser()) {
-//                    loadUI("/view/LoginPage.fxml");
-//                } else {
-//                    showErrorMessage("*User not updated.");
-//                }
+            if (updateUser()) {
+                loadUI("/view/LoginPage.fxml");
+            } else {
+                showErrorMessage("*User not updated.");
+            }
         }
     }
 
@@ -120,19 +120,18 @@ public class OTPVerifiedFormController {
         isPasswordVisible = !isPasswordVisible;
     }
 
-//    private boolean updateUser() throws SQLException, ClassNotFoundException {
-//        final List<UserDTO> allUsers = userBO.getAllUser();
-//        for (UserDTO user : allUsers) {
-//            if (user.getEmail().equals(ForgetPasswordFormController.emailAddress)) {
-//                user.setPassword(txtPassword.getText());
-//                userBO.updateUser(user);
-//                System.out.println("User updated");
-//                return true;
-//            }
-//        }
-//        System.out.println("not");
-//        return false;
-//    }
+    private boolean updateUser() throws SQLException, ClassNotFoundException {
+        final List<UserDTO> allUsers = userBo.getAllUser();
+        for (UserDTO user : allUsers) {
+            if (user.getEmail().equals(ForgetPasswordFormController.emailAddress)) {
+                user.setPassword(txtPassword.getText());
+                userBo.updateUser(user);
+                return true;
+            }
+        }
+        System.out.println("not");
+        return false;
+    }
 
     private boolean isValidPassword(String password) {
         return password.matches(PASSWORD_PATTERN);

@@ -2,10 +2,7 @@ package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.PaymentBO;
 import lk.ijse.bo.custom.TherapySessionBO;
-import lk.ijse.dao.custom.PatientDAO;
-import lk.ijse.dao.custom.TherapistDAO;
-import lk.ijse.dao.custom.TherapyProgramDAO;
-import lk.ijse.dao.custom.TherapySessionDAO;
+import lk.ijse.dao.custom.*;
 import lk.ijse.dao.custom.impl.PatientDAOImpl;
 import lk.ijse.dao.custom.impl.TherapistDAOImpl;
 import lk.ijse.dao.custom.impl.TherapyProgramDAOImpl;
@@ -130,6 +127,11 @@ public class TherapySessionBOImpl implements TherapySessionBO {
     @Override
     public boolean bookSessionWithPayment(String sessionId, String patientId, String therapistId, String programId, LocalDate sessionDate, LocalTime sessionTime, String paymentId) {
         return false;
+    }
+
+    @Override
+    public String getNextSessionId() {
+        return sessionDAO.getNextId();
     }
 
 }

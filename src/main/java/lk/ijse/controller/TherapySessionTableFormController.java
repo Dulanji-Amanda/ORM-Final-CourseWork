@@ -54,9 +54,6 @@ public class TherapySessionTableFormController implements Initializable {
     private TableColumn<TherapySessionTM, LocalTime> clmTime;
 
     @FXML
-    private ImageView imgHome;
-
-    @FXML
     private AnchorPane recordPane;
 
     @FXML
@@ -102,17 +99,12 @@ public class TherapySessionTableFormController implements Initializable {
     @FXML
     void btnBackOnAction(ActionEvent event) {
         try {
-            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Manage-Therapy-Session-Form.fxml")));
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Patient-Table-View.fxml")));
             recordPane.getChildren().setAll(pane);
         } catch (IOException e) {
             showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void navigateToHome(MouseEvent event) {
-
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {

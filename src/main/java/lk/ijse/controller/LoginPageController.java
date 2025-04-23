@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import javafx.scene.input.MouseEvent;
@@ -10,9 +11,11 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.AuthService;
 import lk.ijse.util.Role;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class LoginPageController {
+public class LoginPageController implements Initializable {
 
     @FXML
     private Button btnSignIn;
@@ -33,9 +36,6 @@ public class LoginPageController {
     private Label lblForgotPassword;
 
     @FXML
-    private AnchorPane whiteap;
-
-    @FXML
     private Label lblLogin;
 
     @FXML
@@ -48,9 +48,11 @@ public class LoginPageController {
 
     private boolean isPasswordVisible = false;
 
+    public static LoginPageController instance;
+    public static String username = "";
     @FXML
     void btnSignInOnAction(ActionEvent event) {
-        String username = txtUsername.getText().trim();
+        username = txtUsername.getText().trim();
         String password = txtPassword1.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
@@ -70,7 +72,10 @@ public class LoginPageController {
     @FXML
     void lblCreateAccOnClick(MouseEvent event) {
         loadUI("/view/SignUpPage.fxml");
+    }
 
+    String getUsername() {
+        return txtUsername.getText().trim();
     }
 
     private void navigateToDashBoard(Role role) {
@@ -116,5 +121,10 @@ public class LoginPageController {
             txtPassword1.setVisible(false);
         }
         isPasswordVisible = !isPasswordVisible;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        instance = this;
     }
 }

@@ -13,5 +13,6 @@ public interface TherapySessionBO {
     ArrayList<TherapySessionDTO> loadAllSessions();
     TherapySessionDTO getSessionByPatientName(String name);
     boolean bookSessionWithPayment(String sessionId, String patientId, String therapistId, String programId, LocalDate sessionDate, LocalTime sessionTime, String paymentId);
+    String getNextSessionId();
 
 }

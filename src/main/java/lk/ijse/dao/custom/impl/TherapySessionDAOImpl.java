@@ -44,8 +44,18 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
 
     @Override
     public String getNextId() {
-        return "";
-    }
+        Session session = factoryConfiguration.getSession();
+        // Get the last user ID from the database
+        String lastId = session.createQuery("SELECT t.id FROM TherapySession t ORDER BY t.id DESC", String.class)
+                .setMaxResults(1)
+                .uniqueResult();
+
+        if (lastId != null) {
+            int numericPart = Integer.parseInt(lastId.split("-")[1]) + 1;
+            return String.format("TS00-%03d", numericPart);
+        } else {
+            return "TS00-001"; // First user ID
+        }    }
 
     @Override
     public TherapySession findById(String sessionId) {

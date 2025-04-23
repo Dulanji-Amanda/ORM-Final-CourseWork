@@ -29,12 +29,20 @@ public class PatientBOImpl implements PatientBO {
 
     @Override
     public boolean updatePatient(PatientDTO patientDTO) {
-        return false;
+        return patientDAO.update(new Patient(
+                patientDTO.getId(),
+                patientDTO.getName(),
+                patientDTO.getContactInfo(),
+                patientDTO.getGender(),
+                patientDTO.getMedicalHistory(),
+                new ArrayList<>(),
+                new ArrayList<>()
+        ));
     }
 
     @Override
     public boolean deletePatient(String id) throws Exception {
-        return false;
+        return patientDAO.deleteByPK(id);
     }
 
     @Override
@@ -63,6 +71,18 @@ public class PatientBOImpl implements PatientBO {
 
     @Override
     public Patient findById(String id) {
+        Patient patient = patientDAO.findById(id);
+        if (patient != null) {
+            return new Patient(
+                    patient.getId(),
+                    patient.getName(),
+                    patient.getContactInfo(),
+                    patient.getGender(),
+                    patient.getMedicalHistory(),
+                    new ArrayList<>(),
+                    new ArrayList<>()
+            );
+        }
         return null;
     }
 

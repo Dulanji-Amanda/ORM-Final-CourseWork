@@ -27,9 +27,6 @@ public class SignupPageController {
     private Label lblLogin;
 
     @FXML
-    private AnchorPane whiteap;
-
-    @FXML
     private PasswordField txtConfirmPassword;
 
     @FXML
@@ -105,4 +102,5 @@ public class SignupPageController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

@@ -48,9 +48,6 @@ public class AdminPageController implements Initializable {
     private Label lblAdd;
 
     @FXML
-    private Label lblAdminId;
-
-    @FXML
     private Label lblWelcome;
 
     @FXML
@@ -99,19 +96,18 @@ public class AdminPageController implements Initializable {
 
     @FXML
     void onLogoutClick(MouseEvent event) {
-//        navigateTo("/view/LoginPage.fxml");
+
         rootPane.getChildren().clear();
         try {
             rootPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/LoginPage.fxml"))));
         } catch (IOException e) {
-            showAlert("Error", "Failed load dashboard", Alert.AlertType.ERROR);
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
-
     }
 
     @FXML
     void onSettingsClick(MouseEvent event) {
-        loadUI("/view/SettingForm.fxml");
+        navigateTo("/view/SettingForm.fxml");
     }
 
     private void loadUI(String resource) {
@@ -119,7 +115,7 @@ public class AdminPageController implements Initializable {
         try {
             mainContent.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
         } catch (IOException e) {
-            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
+            showAlert("Error", "Failed to load page!", Alert.AlertType.ERROR);
         }
     }
 

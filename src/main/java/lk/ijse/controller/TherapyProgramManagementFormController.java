@@ -72,6 +72,7 @@ public class TherapyProgramManagementFormController implements Initializable {
     private TextField txtProgramName;
 
     private final TherapyProgramsBO therapyProgramsBO = new TherapyProgramsBOImpl();
+
     private static TherapyProgramManagementFormController instance;
 
     // set therapist id to text field
@@ -85,8 +86,8 @@ public class TherapyProgramManagementFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        clmProgramId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        clmProgramName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        clmProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
+        clmProgramName.setCellValueFactory(new PropertyValueFactory<>("programName"));
         clmDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         clmFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
 
@@ -96,6 +97,9 @@ public class TherapyProgramManagementFormController implements Initializable {
 
     private void generateNewID() {
         txtProgramId.setText(therapyProgramsBO.getNextTherapyProgramId());
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
     }
 
     private void loadTherapyPrograms() {
@@ -123,7 +127,8 @@ public class TherapyProgramManagementFormController implements Initializable {
 
     @FXML
     void btnAddNew_OnAction(ActionEvent event) {
-
+        clearFields();
+        generateNewID();
     }
 
     @FXML

@@ -69,6 +69,9 @@ public class TherapySessionManagementFormController implements Initializable {
     @FXML
     private TextField txtprogramId;
 
+    @FXML
+    private JFXButton btnAddNewSession;
+
     private static TherapySessionManagementFormController instance;
 
     // set therapist id to text field
@@ -89,6 +92,19 @@ public class TherapySessionManagementFormController implements Initializable {
     private final  TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
 
     PaymentManagementController paymentFormController = new PaymentManagementController();
+
+    @FXML
+    void btnAddNew_OnAction(ActionEvent event) {
+        clearFields();
+        generateNewId();
+    }
+
+    private void generateNewId() {
+        txtSessionId.setText(therapySessionBO.getNextSessionId());
+//        btnSave.setDisable(false);
+//        btnUpdate.setDisable(true);
+//        btnDelete.setDisable(true);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -271,66 +287,10 @@ public class TherapySessionManagementFormController implements Initializable {
     }
 
     @FXML
-    void btnCancelOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnRescheduleOnAction(ActionEvent event) {
-
-        // For now, reschedule to a new hardcoded time (e.g., next day, same time)
-        LocalDate newDate = dpSessionDate.getValue(); // you can show date/time pickers
-        LocalTime newTime = LocalTime.parse(txtSessionTime.getText()); // or change time here
-
-        boolean isUpdated = therapySessionBO.rescheduleSession(
-                txtSessionId.getText(),
-                newDate,
-                newTime
-        );
-
-        if (isUpdated) {
-            showAlert("Success", "Session rescheduled successfully!", Alert.AlertType.INFORMATION);
-            try {
-                AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TherapySession-Table-View.fxml")));
-                sessionPane.getChildren().setAll(pane);
-            } catch (IOException e) {
-                showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
-                e.printStackTrace();
-            }
-        } else {
-            showAlert("Error", "Failed to reschedule the session.", Alert.AlertType.ERROR);
-        }
-    }
-
-    @FXML
-    void searchPatient(KeyEvent event) {
-        String name = ((TextField) event.getSource()).getText();
-
-        try {
-            TherapySessionDTO sessionDTO = therapySessionBO.getSessionByPatientName(name);
-
-            if (sessionDTO != null) {
-                txtSessionId.setText(sessionDTO.getSessionId());
-                txtPatientId.setText(sessionDTO.getPatientId());
-                txtTherapistId.setText(sessionDTO.getTherapistId());
-                txtprogramId.setText(sessionDTO.getProgramId());
-                dpSessionDate.setValue(sessionDTO.getSessionDate());
-                txtSessionTime.setText(sessionDTO.getSessionTime().toString());
-            } else {
-                clearFields();
-            }
-
-        } catch (Exception e) {
-            showAlert("Error", "Failed to search therapy session", Alert.AlertType.ERROR);
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     void btnSeeAllOnAction(ActionEvent event) {
         try {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TherapySession-Table-View.fxml")));
-            sessionPane.getChildren().setAll(pane);
+            mainPane.getChildren().setAll(pane);
         } catch (IOException e) {
             showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -339,7 +299,7 @@ public class TherapySessionManagementFormController implements Initializable {
 
     @FXML
     void navigateToHome(MouseEvent event) {
-
+        loadUI("/../view/Home.fxml");
     }
 
     private void loadUI(String resource) {

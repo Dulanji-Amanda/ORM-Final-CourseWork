@@ -60,8 +60,6 @@
         <TextField fx:id="txtprogramId" layoutX="502.0" layoutY="181.0" prefHeight="26.0" prefWidth="274.0" promptText="Set Program ID" />
         <TextField fx:id="txtTherapistId" layoutX="502.0" layoutY="233.0" prefHeight="26.0" prefWidth="274.0" promptText="Set Therapist ID" />
         <JFXButton fx:id="btnSeeAll" layoutX="721.0" layoutY="657.0" onAction="#btnSeeAllOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #ecc479;" text="See All Sessions" />
-        <TextField fx:id="txtSearch" layoutX="583.0" layoutY="30.0" onKeyReleased="#searchPatient" prefHeight="26.0" prefWidth="191.0" promptText="Search by Name" />
-        <JFXButton id="btnAddTherapist" fx:id="btnReschedule" layoutX="549.0" layoutY="69.0" onAction="#btnRescheduleOnAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #ecc479;" text="Reschedule" />
-        <JFXButton id="btnAddTherapist" fx:id="btnCancel" layoutX="698.0" layoutY="69.0" onAction="#btnCancelOnAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #ecc479;" text="Cancel" />
+        <JFXButton id="btnAddNewTherapist" fx:id="btnAddNewSession" layoutX="652.0" layoutY="45.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #ecc479;" text="+ New Session" />
     </children>
 </AnchorPane>

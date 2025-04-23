@@ -30,8 +30,8 @@ public class TherapistTableFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        clmTherapistId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        clmTherapistName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        clmTherapistId.setCellValueFactory(new PropertyValueFactory<>("therapistID"));
+        clmTherapistName.setCellValueFactory(new PropertyValueFactory<>("therapistName"));
         clmSpeciality.setCellValueFactory(new PropertyValueFactory<>("specialization"));
         clmAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
