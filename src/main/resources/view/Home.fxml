@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homepane" prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeController">
+<AnchorPane fx:id="homepane" prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeController">
     <children>
-        <AnchorPane layoutX="44.0" layoutY="37.0" prefHeight="194.0" prefWidth="762.0" style="-fx-background-color: #577BC1; -fx-background-radius: 20;">
+        <AnchorPane layoutX="44.0" layoutY="37.0" prefHeight="194.0" prefWidth="762.0" style="-fx-background-color: BF9264; -fx-background-radius: 20;">
             <children>
                 <Label layoutX="43.0" layoutY="87.0" prefHeight="42.0" prefWidth="286.0" text="Have a nice Day!">
                     <font>
-                        <Font name="Comic Sans MS Bold Italic" size="34.0" />
+                        <Font name="Bell MT Bold" size="34.0" />
                     </font>
                 </Label>
                 <ImageView fitHeight="194.0" fitWidth="191.0" layoutX="527.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/dash.png" />
+                        <Image url="@../images/doctor-removebg-preview.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="date" layoutX="43.0" layoutY="10.0" prefHeight="26.0" prefWidth="191.0" text="Label" />
+                <Label fx:id="timeLabel" layoutX="43.0" layoutY="10.0" prefHeight="26.0" prefWidth="191.0" />
                 <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/calendar.png" />
@@ -29,7 +29,7 @@
                 </ImageView>
             </children>
         </AnchorPane>
-        <Button fx:id="logoutbtn" layoutX="647.0" layoutY="597.0" mnemonicParsing="false" onAction="#logoutbtnOnAction" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #577BC1;" text="Log Out" textFill="WHITE">
+        <Button fx:id="logoutbtn" layoutX="647.0" layoutY="597.0" mnemonicParsing="false" onAction="#logoutbtnOnAction" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: BF9264;" text="Log Out" textFill="#383737">
             <font>
                 <Font name="Comic Sans MS Bold Italic" size="16.0" />
             </font>

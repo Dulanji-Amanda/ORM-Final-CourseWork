@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.custom.TherapySessionBO;
 import lk.ijse.bo.custom.impl.TherapySessionBOImpl;
-import lk.ijse.dto.PaymentDTO;
 import lk.ijse.dto.TherapySessionDTO;
 
 import java.io.IOException;

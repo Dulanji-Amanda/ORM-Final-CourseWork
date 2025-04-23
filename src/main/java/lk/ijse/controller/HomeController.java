@@ -70,8 +70,8 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        setupTherapyPieChart(8, 2); // Example: 8 completed, 2 upcoming
-        setupPaymentBarChart(5, 3); // Example: 5 completed, 3 pending
+//        setupTherapyPieChart(8, 2); // Example: 8 completed, 2 upcoming
+//        setupPaymentBarChart(5, 3); // Example: 5 completed, 3 pending
         // Define the formatter for date and time
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
@@ -85,28 +85,28 @@ public class HomeController implements Initializable {
         clock.play(); // Start the clock
     }
 
-    @FXML
-    private PieChart therapyPieChart;
+//    @FXML
+//    private PieChart therapyPieChart;
+//
+//    @FXML
+//    private BarChart<String, Number> paymentBarChart;
 
-    @FXML
-    private BarChart<String, Number> paymentBarChart;
-
-    private void setupTherapyPieChart(int completed, int upcoming) {
-        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
-                new PieChart.Data("Completed", completed),
-                new PieChart.Data("Upcoming", upcoming)
-        );
-        therapyPieChart.setData(pieData);
-        therapyPieChart.setTitle("Today's Therapies");
-    }
-
-    private void setupPaymentBarChart(int completedPayments, int pendingPayments) {
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Payments");
-
-        series.getData().add(new XYChart.Data<>("Completed", completedPayments));
-        series.getData().add(new XYChart.Data<>("Pending", pendingPayments));
-
-        paymentBarChart.getData().add(series);
-    }
+//    private void setupTherapyPieChart(int completed, int upcoming) {
+//        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
+//                new PieChart.Data("Completed", completed),
+//                new PieChart.Data("Upcoming", upcoming)
+//        );
+//        therapyPieChart.setData(pieData);
+//        therapyPieChart.setTitle("Today's Therapies");
+//    }
+//
+//    private void setupPaymentBarChart(int completedPayments, int pendingPayments) {
+//        XYChart.Series<String, Number> series = new XYChart.Series<>();
+//        series.setName("Payments");
+//
+//        series.getData().add(new XYChart.Data<>("Completed", completedPayments));
+//        series.getData().add(new XYChart.Data<>("Pending", pendingPayments));
+//
+//        paymentBarChart.getData().add(series);
+//    }
 }

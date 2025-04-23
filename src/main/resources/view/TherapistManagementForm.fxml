@@ -9,19 +9,26 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapistManagementFormController">
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapistManagementFormController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="27.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="803.0">
             <fill>
                 <LinearGradient endX="0.048" endY="0.712">
                     <stops>
-                        <Stop color="#1598d6" />
-                        <Stop color="WHITE" offset="1.0" />
+                        <Stop>
+                     <color>
+                        <Color red="0.9254902005195618" green="0.7686274647712708" blue="0.4745098054409027" />
+                     </color></Stop>
+                        <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color></Stop>
                     </stops>
                 </LinearGradient>
             </fill>
@@ -39,7 +46,7 @@
                 <Font name="Ubuntu" size="27.0" />
             </font>
         </Label>
-        <JFXButton id="btnAddNewTherapist" fx:id="btnAddNewTherapist" layoutX="664.0" layoutY="32.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #007bff;" text="+ New Therapist" textFill="WHITE" />
+        <JFXButton id="btnAddNewTherapist" fx:id="btnAddNewTherapist" layoutX="664.0" layoutY="32.0" onAction="#btnAddNew_OnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-cursor: hand; -fx-background-color: #ecc479;" text="+ New Therapist" textFill="WHITE" />
         <TextField fx:id="txtTherapistId" layoutX="27.0" layoutY="131.0" prefHeight="26.0" prefWidth="262.0" promptText="Therapist ID:" />
         <TextField fx:id="txtTherapistName" layoutX="27.0" layoutY="176.0" prefHeight="26.0" prefWidth="522.0" promptText="Therapist Name:" />
         <TextField fx:id="txtTherapistSpecialty" layoutX="27.0" layoutY="218.0" prefHeight="26.0" prefWidth="522.0" promptText="Specialty:" />
