@@ -1,61 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapySessionTableFormController">
+<AnchorPane fx:id="recordPane" prefHeight="306.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapySessionTableFormController">
    <children>
-      <TableView fx:id="tblTherapySession" layoutX="40.0" layoutY="121.0" prefHeight="410.0" prefWidth="573.0">
+      <TableView fx:id="tblTherapySession" layoutX="5.0" layoutY="14.0" prefHeight="241.0" prefWidth="786.0">
          <columns>
-            <TableColumn fx:id="clmSessionId" prefWidth="64.0" text="Session ID" />
-            <TableColumn fx:id="clmDate" prefWidth="76.0" text="Date" />
-            <TableColumn fx:id="clmTime" prefWidth="73.60003662109375" text="Time" />
-            <TableColumn fx:id="clmStatus" prefWidth="88.79998779296875" text="Status" />
-            <TableColumn fx:id="clmPatientId" prefWidth="70.4000244140625" text="Patient ID" />
-            <TableColumn fx:id="clmProgramId" prefWidth="87.199951171875" text="Program ID" />
-            <TableColumn fx:id="clmTherapistId" prefWidth="109.60003662109375" text="Therapist ID" />
+            <TableColumn fx:id="clmSessionId" prefWidth="86.3999924659729" text="Session ID" />
+            <TableColumn fx:id="clmDate" prefWidth="102.4000015258789" text="Date" />
+            <TableColumn fx:id="clmTime" prefWidth="77.5999755859375" text="Time" />
+            <TableColumn fx:id="clmStatus" prefWidth="160.79998779296875" text="Status" />
+            <TableColumn fx:id="clmPatientId" prefWidth="107.19998168945312" text="Patient ID" />
+            <TableColumn fx:id="clmProgramId" prefWidth="109.60003662109375" text="Program ID" />
+            <TableColumn fx:id="clmTherapistId" prefWidth="145.5999755859375" text="Therapist ID" />
          </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="20.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 30px; -fx-arc-height: 30px;" width="620.0">
-         <fill>
-            <LinearGradient endX="0.048" endY="0.712">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.9254902005195618" green="0.7686274647712708" blue="0.4745098054409027" />
-                     </color></Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color></Stop>
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <ImageView id="imgHome" fx:id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="40.0" layoutY="34.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/HOME.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <Label layoutX="121.0" layoutY="40.0" text="Full Record Of Therapy Session">
-         <font>
-            <Font name="Ubuntu" size="27.0" />
-         </font>
-      </Label>
-      <JFXButton id="btnAddTherapist" fx:id="btnBack" layoutX="503.0" layoutY="542.0" onAction="#btnBackOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #ecc479;" text="Back" />
+      <JFXButton id="btnAddTherapist" fx:id="btnBack" layoutX="654.0" layoutY="262.0" onAction="#btnBackOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #80C4E9;" text="Back" />
    </children>
 </AnchorPane>
