@@ -30,6 +30,9 @@ public class AdminPageController implements Initializable {
     private Button btnPatient;
 
     @FXML
+    private Button btnreport;
+
+    @FXML
     private Button btnPayment;
 
     @FXML
@@ -84,9 +87,6 @@ public class AdminPageController implements Initializable {
         loadUI("/view/PaymentManagementForm.fxml");
     }
 
-
-
-
     @FXML
     void btnTherapistOnAction(ActionEvent event) {
         loadUI("/view/TherapistManagementForm.fxml");
@@ -118,7 +118,7 @@ public class AdminPageController implements Initializable {
         try {
             mainContent.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
         } catch (IOException e) {
-            showAlert("Error", "Failed to load page!", Alert.AlertType.ERROR);
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
     }
 
@@ -132,6 +132,11 @@ public class AdminPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/Home.fxml");
+    }
+
+    @FXML
+    void btnreportOnAction(ActionEvent event) {
+        loadUI("/view/TherapistPerformanceReport.fxml");
     }
 
     private void navigateTo(String fxmlPath) {

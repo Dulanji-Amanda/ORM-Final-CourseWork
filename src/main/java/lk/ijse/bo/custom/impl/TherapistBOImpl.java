@@ -4,6 +4,7 @@ import lk.ijse.bo.custom.TherapistBO;
 import lk.ijse.dao.custom.TherapistDAO;
 import lk.ijse.dao.custom.impl.TherapistDAOImpl;
 import lk.ijse.dto.TherapistDTO;
+import lk.ijse.entity.Patient;
 import lk.ijse.entity.Therapist;
 
 import java.sql.SQLException;
@@ -31,6 +32,22 @@ public class TherapistBOImpl implements TherapistBO {
     @Override
     public String getNextTherapistID() {
         return therapistDAO.getNextId();
+    }
+
+    @Override
+    public Therapist findById(String id) {
+        Therapist therapist = therapistDAO.findById(id);
+        if (therapist != null) {
+            return new Therapist(
+                    therapist.getTherapistID(),
+                    therapist.getTherapistName(),
+                    therapist.getSpecialization(),
+                    therapist.getAvailability(),
+                    new ArrayList<>(),
+                    new ArrayList<>()
+            );
+        }
+        return null;
     }
 
     @Override

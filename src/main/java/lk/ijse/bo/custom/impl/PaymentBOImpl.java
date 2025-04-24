@@ -68,4 +68,27 @@ public class PaymentBOImpl implements PaymentBO {
         return paymentDTOList;
     }
 
+    @Override
+    public long getCompletedPaymentCount() {
+        try {
+            return paymentDAO.getAll().stream()
+                    .filter(payment -> "completed".equalsIgnoreCase(payment.getStatus()))
+                    .count();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @Override
+    public long getPendingPaymentCount() {
+        try {
+            return paymentDAO.getAll().stream()
+                    .filter(payment -> "pending".equalsIgnoreCase(payment.getStatus()))
+                    .count();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }    }
+
 }

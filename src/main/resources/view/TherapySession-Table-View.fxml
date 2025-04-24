@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="recordPane" prefHeight="306.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapySessionTableFormController">
    <children>
-      <TableView fx:id="tblTherapySession" layoutX="5.0" layoutY="14.0" prefHeight="241.0" prefWidth="786.0">
+      <TableView fx:id="tblTherapySession" layoutX="5.0" layoutY="14.0" prefHeight="285.0" prefWidth="786.0">
          <columns>
             <TableColumn fx:id="clmSessionId" prefWidth="86.3999924659729" text="Session ID" />
             <TableColumn fx:id="clmDate" prefWidth="102.4000015258789" text="Date" />
@@ -18,6 +17,5 @@
             <TableColumn fx:id="clmTherapistId" prefWidth="145.5999755859375" text="Therapist ID" />
          </columns>
       </TableView>
-      <JFXButton id="btnAddTherapist" fx:id="btnBack" layoutX="654.0" layoutY="262.0" onAction="#btnBackOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #80C4E9;" text="Back" />
    </children>
 </AnchorPane>

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapySessionManagementFormController">
+<AnchorPane fx:id="sessionPane" prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TherapySessionManagementFormController">
     <children>
         <Label layoutX="35.0" layoutY="141.0" text="Session ID:" />
         <TextField fx:id="txtSessionId" layoutX="130.0" layoutY="136.0" prefHeight="26.0" prefWidth="274.0" promptText="Enter Session ID" />

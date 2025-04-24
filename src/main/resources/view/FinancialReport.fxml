@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lk.ijse.controller.FinancialReportController"
+            prefHeight="400.0" prefWidth="600.0">
+    <TabPane layoutX="10" layoutY="10" prefWidth="780" prefHeight="580">
+        <Tab text="Financial Report">
+            <AnchorPane>
+                <TableView fx:id="tblPayments" layoutX="10" layoutY="10" prefWidth="760" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="colPaymentId" text="Payment ID" prefWidth="250"/>
+                        <TableColumn fx:id="colAmount" text="Amount" prefWidth="250"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="250"/>
+                    </columns>
+                </TableView>
+                <BarChart fx:id="barChartPayments" layoutX="10" layoutY="320" prefWidth="760" prefHeight="240">
+                    <xAxis>
+                        <CategoryAxis label="Payment Status"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Count"/>
+                    </yAxis>
+                </BarChart>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</AnchorPane>

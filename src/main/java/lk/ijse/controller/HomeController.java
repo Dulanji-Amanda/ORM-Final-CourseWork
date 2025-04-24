@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -33,14 +34,18 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
     @FXML
-    private Label timeLabel;
+    private JFXButton btnhistory;
 
     @FXML
     private AnchorPane homepane;
 
     @FXML
     private Button logoutbtn;
+
+    @FXML
+    private Label timeLabel;
 
     @FXML
     private BarChart<String, Number> paymentBarChart;
@@ -50,6 +55,26 @@ public class HomeController implements Initializable {
     @FXML
     void logoutbtnOnAction(ActionEvent event) {
         navigateTo();
+    }
+
+    @FXML
+    void btnHistoryOnAction(ActionEvent event) {
+        loadUI("/view/TherapyHistory.fxml");
+    }
+
+    private void loadUI(String fxmlPath) {
+        try {
+            homepane.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+
+            load.prefWidthProperty().bind(homepane.widthProperty());
+            load.prefHeightProperty().bind(homepane.heightProperty());
+            homepane.getChildren().add(load);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
+        }
     }
 
     public void start(Stage primaryStage) throws Exception {
@@ -78,11 +103,6 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        factory = new Configuration().configure().buildSessionFactory();
-
-        loadPaymentChartData();
-
         // Define the formatter for date and time
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
@@ -94,37 +114,6 @@ public class HomeController implements Initializable {
 
         clock.setCycleCount(Timeline.INDEFINITE); // Run forever
         clock.play(); // Start the clock
-    }
-
-    private void loadPaymentChartData() {
-        Session session = factory.openSession();
-        session.beginTransaction();
-
-        // Fetch counts for completed and pending payments
-        Long completed = (Long) session.createQuery("SELECT COUNT(*) FROM Payment WHERE status = 'completed'")
-                .uniqueResult();
-        Long pending = (Long) session.createQuery("SELECT COUNT(*) FROM Payment WHERE status = 'pending'")
-                .uniqueResult();
-
-        session.getTransaction().commit();
-        session.close();
-
-        // Calculate total payments
-        long totalPayments = completed + pending;
-
-        // Calculate percentages
-        double completedPercentage = totalPayments > 0 ? (completed * 100.0) / totalPayments : 0;
-        double pendingPercentage = totalPayments > 0 ? (pending * 100.0) / totalPayments : 0;
-
-        // Update bar chart
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Payment Status");
-
-        series.getData().add(new XYChart.Data<>("Completed (" + String.format("%.2f", completedPercentage) + "%)", completedPercentage));
-        series.getData().add(new XYChart.Data<>("Pending (" + String.format("%.2f", pendingPercentage) + "%)", pendingPercentage));
-
-        paymentBarChart.getData().clear();
-        paymentBarChart.getData().add(series);
     }
 
 }

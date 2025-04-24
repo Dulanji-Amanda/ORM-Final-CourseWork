@@ -219,26 +219,17 @@ public class TherapySessionManagementFormController implements Initializable {
 
     private void navigateToPaymentForm(TherapySessionDTO sessionDTO) throws IOException {
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PaymentManagementForm.fxml"));
+            AnchorPane paymentPane = loader.load();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Manage-Payment-Form.fxml"));
-            AnchorPane pane = loader.load();
-
-            // Get the actual controller instance associated with the FXML
             PaymentManagementController paymentController = loader.getController();
-
-            // Set session details
             paymentController.setSessionId(sessionDTO.getSessionId());
             paymentController.setParentController(this);
 
-            // Now display the pane
-            sessionPane.getChildren().setAll(pane);
+            sessionPane.getChildren().clear();
+            sessionPane.getChildren().add(paymentPane);
 
-            // Simulate the user completing the form and saving payment
             paymentController.savePaymentWithSession();
-
-//            if (dto != null) {
-//                handlePaymentComplete(sessionDTO);
-//            }
 
         } catch (IOException e) {
             showAlert("Error", "Failed to load payment form!", Alert.AlertType.ERROR);

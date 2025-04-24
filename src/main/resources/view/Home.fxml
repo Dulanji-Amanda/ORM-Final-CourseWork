@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,50 +8,59 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homepane" prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeController">
+<AnchorPane fx:id="homepane" prefHeight="700.0" prefWidth="850.0" style="-fx-background-color: #ecc479; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeController">
     <children>
-        <AnchorPane layoutX="44.0" layoutY="37.0" prefHeight="194.0" prefWidth="762.0" style="-fx-background-color: BF9264; -fx-background-radius: 20;">
+      <AnchorPane layoutX="28.0" layoutY="28.0" prefHeight="646.0" prefWidth="793.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <children>
+              <Button fx:id="logoutbtn" layoutX="623.0" layoutY="586.0" mnemonicParsing="false" onAction="#logoutbtnOnAction" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #ecc479;" text="Log Out" textFill="WHITE">
+                  <font>
+                      <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                  </font>
+              </Button>
+              <ImageView fitHeight="26.0" fitWidth="19.0" layoutX="731.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../images/logout.png" />
+                  </image>
+              </ImageView>
+         </children>
+      </AnchorPane>
+        <AnchorPane layoutX="314.0" layoutY="141.0" prefHeight="147.0" prefWidth="499.0" style="-fx-background-color: F6F1DE; -fx-background-radius: 20;">
             <children>
-                <Label layoutX="43.0" layoutY="87.0" prefHeight="42.0" prefWidth="286.0" text="Have a nice Day!">
+                <Label fx:id="timeLabel" layoutX="43.0" layoutY="10.0" prefHeight="34.0" prefWidth="251.0">
                     <font>
-                        <Font name="Bell MT Bold" size="34.0" />
-                    </font>
-                </Label>
-                <ImageView fitHeight="194.0" fitWidth="191.0" layoutX="527.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/doctor-removebg-preview.png" />
-                    </image>
-                </ImageView>
-                <Label fx:id="timeLabel" layoutX="43.0" layoutY="10.0" prefHeight="26.0" prefWidth="191.0" />
-                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <Font size="18.0" />
+                    </font></Label>
+                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/calendar.png" />
                     </image>
                 </ImageView>
+              <JFXButton fx:id="btnhistory" layoutX="333.0" layoutY="61.0" onAction="#btnHistoryOnAction" prefHeight="42.0" prefWidth="128.0" style="-fx-cursor: hand; -fx-background-color: white; -fx-border-color: black;" text="Therapy History">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+                <Label layoutX="98.0" layoutY="53.0" prefHeight="77.0" prefWidth="209.0" text="Have a nice Day!">
+                    <font>
+                        <Font name="Californian FB" size="28.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="logoutbtn" layoutX="647.0" layoutY="597.0" mnemonicParsing="false" onAction="#logoutbtnOnAction" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: BF9264;" text="Log Out" textFill="#383737">
-            <font>
-                <Font name="Comic Sans MS Bold Italic" size="16.0" />
-            </font>
-        </Button>
-        <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="771.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="549.0" fitWidth="537.0" layoutX="-41.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/logout.png" />
+                <Image url="@../images/nurse.png" />
             </image>
         </ImageView>
-      <BarChart fx:id="paymentBarChart" layoutX="415.0" layoutY="288.0" prefHeight="300" prefWidth="400">
-         <xAxis>
-            <CategoryAxis label="Payment Status" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis label="Count" />
-         </yAxis>
-      </BarChart>
-      <ImageView fitHeight="526.0" fitWidth="435.0" layoutX="8.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/nurse.png" />
-         </image>
-      </ImageView>
+      <Label layoutX="150.0" layoutY="40.0" prefHeight="62.0" prefWidth="589.0" text="WELCOME TO CALM MINDS !" textFill="#5e5d08c6">
+         <font>
+            <Font name="Californian FB Italic" size="48.0" />
+         </font>
+      </Label>
+          <ImageView fitHeight="323.0" fitWidth="423.0" layoutX="433.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@../images/doctor-removebg-preview.png" />
+              </image>
+          </ImageView>
     </children>
 </AnchorPane>

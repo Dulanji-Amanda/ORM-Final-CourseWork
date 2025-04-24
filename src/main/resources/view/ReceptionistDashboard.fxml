@@ -14,7 +14,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="rootPane" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: F6F1DE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ReceptionistPageController">
    <children>
       <VBox layoutX="61.0" layoutY="45.0" prefHeight="700.0" prefWidth="250.0" style="-fx-background-radius: 30;">
@@ -62,6 +61,11 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </VBox>
+                  <Button fx:id="btnFinancereport" mnemonicParsing="false" onAction="#btnFinancereportOnAction" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: black;" text="View Finance Report">
+                     <VBox.margin>
+                        <Insets left="60.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Dashboard">
                      <font>
                         <Font name="Comic Sans MS" size="17.0" />
@@ -139,26 +143,17 @@
                         </ImageView>
                      </children>
                      <VBox.margin>
-                        <Insets top="150.0" />
+                        <Insets top="100.0" />
                      </VBox.margin>
                   </HBox>
                </children>
-               <padding>
-                  <Insets bottom="50.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
             </VBox>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainContent" layoutX="323.0" layoutY="45.0" prefHeight="680.0" prefWidth="850.0" style="-fx-background-radius: 18; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 18;">
+      <AnchorPane fx:id="mainContent" layoutX="323.0" layoutY="45.0" prefHeight="700.0" prefWidth="850.0" style="-fx-background-radius: 18; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 18;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-         <padding>
-            <Insets bottom="20.0" />
-         </padding>
       </AnchorPane>
    </children>
 </AnchorPane>

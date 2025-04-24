@@ -10,4 +10,7 @@ public interface PaymentBO {
     String getNextPaymentID();
     ArrayList<PaymentDTO> loadAllPayments();
 
+    long getCompletedPaymentCount();
+
+    long getPendingPaymentCount();
 }

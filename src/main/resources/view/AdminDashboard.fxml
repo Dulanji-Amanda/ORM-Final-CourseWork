@@ -61,6 +61,11 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </VBox>
+                  <Button fx:id="btnreport" mnemonicParsing="false" onAction="#btnreportOnAction" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: white; -fx-border-color: black;" text="View Report">
+                     <VBox.margin>
+                        <Insets left="70.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="45.0" prefWidth="246.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" text="Dashboard">
                      <font>
                         <Font name="Comic Sans MS" size="17.0" />

@@ -1,36 +1,25 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.custom.TherapySessionBO;
 import lk.ijse.bo.custom.impl.TherapySessionBOImpl;
 import lk.ijse.dto.TherapySessionDTO;
 import lk.ijse.view.tdm.TherapySessionTM;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TherapySessionTableFormController implements Initializable {
-
-    @FXML
-    private JFXButton btnBack;
 
     @FXML
     private TableColumn<TherapySessionTM, LocalDate> clmDate;
@@ -96,22 +85,5 @@ public class TherapySessionTableFormController implements Initializable {
         tblTherapySession.setItems(sessionTMS);
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) {
-        try {
-            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/Patient-Table-View.fxml")));
-            recordPane.getChildren().setAll(pane);
-        } catch (IOException e) {
-            showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
-            e.printStackTrace();
-        }
-    }
-
-    private void showAlert(String title, String message, Alert.AlertType alertType) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
 }

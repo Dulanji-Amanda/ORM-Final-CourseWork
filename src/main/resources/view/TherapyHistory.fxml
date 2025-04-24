@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lk.ijse.controller.PatientTherapyHistoryController"
+            prefHeight="400.0" prefWidth="600.0">
+    <TabPane layoutX="10" layoutY="10" prefWidth="780" prefHeight="580">
+        <!-- Tab for Patient Therapy History -->
+        <Tab text="Patient Therapy History">
+            <AnchorPane>
+                <TableView fx:id="tblTherapyHistory" layoutX="10" layoutY="10" prefWidth="760" prefHeight="550">
+                    <columns>
+                        <TableColumn fx:id="colSessionId" text="Session ID" prefWidth="150"/>
+                        <TableColumn fx:id="colTherapistName" text="Therapist Name" prefWidth="200"/>
+                        <TableColumn fx:id="colProgramName" text="Program Name" prefWidth="200"/>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="200"/>
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+
+</AnchorPane>

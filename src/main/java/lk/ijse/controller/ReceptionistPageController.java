@@ -48,6 +48,14 @@ public class ReceptionistPageController implements Initializable {
     private AnchorPane rootPane;
 
     @FXML
+    private Button btnFinancereport;
+
+    @FXML
+    void btnFinancereportOnAction(ActionEvent event) {
+        loadUI("/view/FinancialReport.fxml");
+    }
+
+    @FXML
     void btnAppointmentOnAction(ActionEvent event) {
         loadUI("/view/TherapySessionManagementForm.fxml");
     }
@@ -112,6 +120,7 @@ public class ReceptionistPageController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/Home.fxml");

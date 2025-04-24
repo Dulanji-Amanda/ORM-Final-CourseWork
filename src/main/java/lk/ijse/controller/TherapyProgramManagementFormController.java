@@ -92,7 +92,11 @@ public class TherapyProgramManagementFormController implements Initializable {
         clmFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
 
         loadTherapyPrograms();
-        generateNewID();
+        try {
+            generateNewID();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void generateNewID() {
@@ -161,83 +165,37 @@ public class TherapyProgramManagementFormController implements Initializable {
         }
     }
 
-//    @FXML
-//    void btnSave_OnAction(ActionEvent event) {
-//        String id = txtProgramId.getText();
-//        String name = txtProgramName.getText();
-//        int duration = Integer.parseInt(txtProgramDuration.getText());
-//        double fee = Double.parseDouble(txtFee.getText());
-//
-//        if(id.isEmpty() || name.isEmpty() || duration < 0 || fee < 0)  {
-//            showAlert("Warning", "Please fill all fields!", Alert.AlertType.WARNING);
-//            return;
-//        }
-//
-//        TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO(id, name, duration, fee);
-//        try{
-//            boolean isSaved = therapyProgramsBO.saveTherapyPrograms(therapyProgramDTO);
-//
-//            if (isSaved) {
-//                showAlert("Success", "Therapy Program save successfully!", Alert.AlertType.INFORMATION);
-//
-//            } else {
-//                showAlert("Error", "Failed to save Therapy Program!", Alert.AlertType.ERROR);
-//            }
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-@FXML
-void btnSave_OnAction(ActionEvent event) {
-    try {
-        // Get values from fields
-        String id = txtProgramId.getText().trim();
-        String name = txtProgramName.getText().trim();
-        String durationText = txtProgramDuration.getText().trim();
-        String feeText = txtFee.getText().trim();
+    @FXML
+    void btnSave_OnAction(ActionEvent event) {
+        String id = txtProgramId.getText();
+        String name = txtProgramName.getText();
+        int duration = Integer.parseInt(txtProgramDuration.getText());
+        double fee = Double.parseDouble(txtFee.getText());
 
-        // Validate all fields
-        if (id.isEmpty() || name.isEmpty() || durationText.isEmpty() || feeText.isEmpty()) {
+        if(id.isEmpty() || name.isEmpty() || duration < 0 || fee < 0)  {
             showAlert("Warning", "Please fill all fields!", Alert.AlertType.WARNING);
             return;
         }
 
-        // Validate numeric fields
-        int duration;
-        double fee;
-        try {
-            duration = Integer.parseInt(durationText);
-            fee = Double.parseDouble(feeText);
-
-            if (duration <= 0 || fee <= 0) {
-                showAlert("Warning", "Duration and fee must be positive numbers!", Alert.AlertType.WARNING);
-                return;
-            }
-        } catch (NumberFormatException e) {
-            showAlert("Warning", "Please enter valid numbers for duration and fee!", Alert.AlertType.WARNING);
-            return;
-        }
-
         TherapyProgramDTO therapyProgramDTO = new TherapyProgramDTO(id, name, duration, fee);
-        boolean isSaved = therapyProgramsBO.saveTherapyPrograms(therapyProgramDTO);
+        try{
+            boolean isSaved = therapyProgramsBO.saveTherapyPrograms(therapyProgramDTO);
 
-        if (isSaved) {
-            showAlert("Success", "Therapy Program saved successfully!", Alert.AlertType.INFORMATION);
-            loadTherapyPrograms(); // Refresh table
-            clearFields(); // Clear fields
-            generateNewID(); // Generate new ID for next entry
-        } else {
-            showAlert("Error", "Failed to save Therapy Program!", Alert.AlertType.ERROR);
+            if (isSaved) {
+                clearFields();
+                loadTherapyPrograms();
+                generateNewID();
+                showAlert("Success", "Therapy Program save successfully!", Alert.AlertType.INFORMATION);
+
+            } else {
+                showAlert("Error", "Failed to save Therapy Program!", Alert.AlertType.ERROR);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-    } catch (Exception e) {
-        showAlert("Error", "An error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
-        e.printStackTrace();
     }
-}
 
-//-----------------------------------------------
     @FXML
     void btnUpdate_OnAction(ActionEvent event) {
         String id = txtProgramId.getText();
@@ -271,6 +229,8 @@ void btnSave_OnAction(ActionEvent event) {
         txtProgramName.clear();
         txtProgramDuration.clear();
         txtFee.clear();
+        loadTherapyPrograms();
+        generateNewID();
     }
 
     @FXML

@@ -49,7 +49,6 @@ public class PatientTableFormController implements Initializable {
         }else {
             TherapySessionManagementFormController.getInstance().setPatientId(selectedItem.getId());
         }
-
     }
 
     @Override

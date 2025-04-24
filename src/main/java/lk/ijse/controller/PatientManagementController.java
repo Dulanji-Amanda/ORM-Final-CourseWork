@@ -132,6 +132,7 @@ public class PatientManagementController implements Initializable {
     @FXML
     void btnAddNew_OnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         generateNewPatientId();
+        clearFields();
     }
 
     @FXML

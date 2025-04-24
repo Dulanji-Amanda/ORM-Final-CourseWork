@@ -6,6 +6,7 @@ import lk.ijse.dao.custom.TherapyProgramDAO;
 import lk.ijse.dao.custom.impl.TherapistDAOImpl;
 import lk.ijse.dao.custom.impl.TherapyProgramDAOImpl;
 import lk.ijse.dto.TherapyProgramDTO;
+import lk.ijse.entity.Patient;
 import lk.ijse.entity.TherapyProgram;
 
 import java.sql.SQLException;
@@ -39,6 +40,21 @@ public class TherapyProgramsBOImpl implements TherapyProgramsBO {
     public String getNextTherapyProgramId() {
         return therapyProgramDAO.getNextId();
     }
+
+    @Override
+    public TherapyProgram findById(String programId) {
+        TherapyProgram therapyProgram = therapyProgramDAO.findById(programId);
+        if (therapyProgram != null) {
+            return new TherapyProgram(
+                    therapyProgram.getProgramId(),
+                    therapyProgram.getProgramName(),
+                    therapyProgram.getDuration(),
+                    therapyProgram.getFee(),
+                    new ArrayList<>(),
+                    new ArrayList<>()
+            );
+        }
+        return null;    }
 
     @Override
     public boolean saveTherapyPrograms(TherapyProgramDTO therapyProgramDTO) {
